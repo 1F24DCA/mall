@@ -111,7 +111,7 @@
 			
 			<hr>
 		
-			<div class="px-3"><%=notice.getNoticeContent() %></div>
+			<div class="px-3 my-5"><%=notice.getNoticeContent() %></div>
 			
 			<hr>
 			

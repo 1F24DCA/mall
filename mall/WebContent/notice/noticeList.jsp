@@ -96,14 +96,14 @@
 				
 				<hr>
 				
-				<h6 class="font-weight-lighter">공지사항은 최근 20건까지만 노출됩니다</h6>
+				<h6 class="font-weight-lighter mb-3">공지사항은 최근 20건까지만 노출됩니다</h6>
 				
 				<table class="table table-borderless">
 					<thead>
 						<tr>
-							<th><h5 class="font-weight-bolder">번호</h5></th>
-							<th><h5 class="font-weight-bolder">제목</h5></th>
-							<th><h5 class="font-weight-bolder">날짜</h5></th>
+							<th class="text-center"><h5 class="font-weight-bolder">번호</h5></th>
+							<th class="w-75"><h5 class="font-weight-bolder">제목</h5></th>
+							<th class="text-center"><h5 class="font-weight-bolder"></h5></th>
 						</tr>
 					</thead>
 					
@@ -111,10 +111,15 @@
 						<%
 							for (Notice n : list) {
 						%>
-								<tr>
-									<td><%=n.getNoticeId() %></td>
-									<td><a class="text-reset" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeTitle() %></a></td>
-									<td><%=n.getNoticeDate().replace(".0", "") %></td>
+							
+								<tr class="border-top">
+									<td class="text-center"><%=n.getNoticeId() %></td>
+									<td>
+										<a class="text-primary" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>">
+											<%=n.getNoticeTitle() %>
+										</a>
+									</td>
+									<td class="text-center small"><%=n.getNoticeDate().replace(".0", "") %></td>
 								</tr>
 						<%
 							}
