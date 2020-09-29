@@ -100,7 +100,7 @@
 					
 					<div class="row d-flex align-items-center mb-3">
 						<div class="col-1">
-							<img class="img-fluid border" src="http://<%=request.getServerName()%>/mall-admin/image/<%=product.getProductPic()%>">
+							<img class="img-fluid border w-100" src="/mall-admin/image/<%=product.getProductPic()%>">
 						</div>
 						
 						<div class="col-11">
