@@ -47,9 +47,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- 이 페이지는 FontAwesome Icon을 사용합니다 (딱 두번밖에 안쓰지만요) -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-		
-		<!-- img를 정사각형으로 표현하기 위한 CSS입니다 -->
-		<style> img:after { padding-bottom:100%; } </style>
 	</head>
 	
 	<%
@@ -254,7 +251,7 @@
 					<div class="col text-center align-middle">
 						<a href="<%=request.getContextPath()%>/product/productList.jsp?searchCategoryId=<%=c.getCategoryId()%>" title="<%=c.getCategoryName()%>">
 							<!-- w-100 속성과 h-100 속성, 그리고 img:after {padding-bottom:100%}로 이미지 크기를 테이블에 맞게 정사각형으로 재조정, border 속성으로 테두리를 주었습니다 -->
-							<img class="w-100 h-100 rounded-circle border" src="/mall-admin/image/<%=c.getCategoryPic()%>">
+							<img class="img-fluid rounded-circle border w-100" src="/mall-admin/image/<%=c.getCategoryPic()%>">
 						</a>
 					</div>
 				<%
@@ -370,7 +367,7 @@
 									 -->
 									<!-- 또한 카드 전체에 링크를 걸기 위해 div 태그 대신 a 태그를 사용합니다 -->
 									<a class="card mb-4 p-3 bg-light border-0 text-reset text-decoration-none" href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=pac.getProduct().getProductId()%>">
-										<img class="card-img-top border w-100 h-100" src="/mall-admin/image/<%=pac.getProduct().getProductPic()%>">
+										<img class="card-img-top border w-100" src="/mall-admin/image/<%=pac.getProduct().getProductPic()%>">
 										<div class="card-body">
 											<!-- 
 												mt나 mb, mx 등 마진 설정에 대해선 익숙하리라 봅니다

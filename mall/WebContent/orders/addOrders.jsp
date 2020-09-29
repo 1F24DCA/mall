@@ -20,8 +20,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- FontAwesome Icon 사용 -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	
-		<style> img:after { padding-bottom:100%; } </style>
 	</head>
 	
 	<%
@@ -102,7 +100,7 @@
 					
 					<div class="row d-flex align-items-center mb-3">
 						<div class="col-1">
-							<img class="border w-100 h-100" src="/mall-admin/image/<%=product.getProductPic()%>">
+							<img class="img-fluid border w-100" src="/mall-admin/image/<%=product.getProductPic()%>">
 						</div>
 						
 						<div class="col-11">

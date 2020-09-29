@@ -15,8 +15,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- FontAwesome Icon 사용 -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	
-		<style> img:after { padding-bottom:100%; } </style>
 	</head>
 	
 	<%
@@ -192,7 +190,7 @@
 								%>
 										<div class="col-4">
 											<a class="card mb-4 p-3 bg-light border-0 text-reset text-decoration-none" href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=pac.getProduct().getProductId()%>">
-												<img class="card-img-top border w-100 h-100" src="/mall-admin/image/<%=pac.getProduct().getProductPic()%>" alt="Card image">
+												<img class="card-img-top border w-100" src="/mall-admin/image/<%=pac.getProduct().getProductPic()%>" alt="Card image">
 												<div class="card-body">
 													<h6 class="card-title text-right mx-n3 mt-n2 mb-n1"><%=pac.getProduct().getProductName() %></h6>
 													<%
