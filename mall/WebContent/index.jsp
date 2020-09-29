@@ -380,7 +380,17 @@
 												이 쓸데없는 여백을 없애기 위해 mt-n2등을 사용했습니다
 											 -->
 											<h6 class="card-title text-right mx-n3 mt-n2 mb-n1"><%=pac.getProduct().getProductName() %></h6>
-											<h4 class="card-text text-left mx-n3 mt-n1 mb-n3"><%=pac.getProduct().getProductPrice() %>원</h4>
+											<%
+												if (pac.getProduct().getProductSoldout().equals("Y")) {
+											%>
+													<h4 class="card-text text-left mx-n3 mt-n1 mb-n3 text-secondary">품절</h4>
+											<%
+												} else {
+											%>
+													<h4 class="card-text text-left mx-n3 mt-n1 mb-n3"><%=pac.getProduct().getProductPrice() %>원</h4>
+											<%
+												}
+											%>
 										</div>
 									</a>
 								</div>

@@ -107,7 +107,6 @@
 						<div><%=pac.getProduct().getProductContent() %></div>
 					</div>
 					<div class="d-flex flex-column justify-content-end align-items-end w-25 p-2">
-						<h5>가격 ￦<%=pac.getProduct().getProductPrice() %></h5>
 						<%
 							if (pac.getProduct().getProductSoldout().equals("Y")) {
 						%>
@@ -115,6 +114,7 @@
 						<%
 							} else {
 						%>
+								<h5>가격 ￦<%=pac.getProduct().getProductPrice() %></h5>
 								<a class="btn btn-lg btn-primary btn-block" href="<%=request.getContextPath()%>/orders/addOrders.jsp?productId=<%=pac.getProduct().getProductId()%>">주문하기</a>
 						<%
 							}
