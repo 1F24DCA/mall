@@ -97,7 +97,7 @@
 				
 				<div class="d-flex">
 					<div class="w-25 p-2">
-						<img class="img-fluid border" src="http://<%=request.getServerName()%>:<%=request.getServerPort()%>/mall-admin/image/<%=pac.getProduct().getProductPic()%>">
+						<img class="img-fluid border" src="http://<%=request.getServerName()%>/mall-admin/image/<%=pac.getProduct().getProductPic()%>">
 					</div>
 					<div class="w-50 p-2">
 						<h4 class="small">
