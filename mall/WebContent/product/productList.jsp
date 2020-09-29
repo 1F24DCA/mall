@@ -242,12 +242,19 @@
 									naviLastLink = THIS_PAGE+"?currentPage="+(productListPage.getNaviLastPage())+"&searchCategoryId="+searchCategoryId+"&searchProductName="+searchProductName;
 								}
 							%>
-							<h5 class="font-weight-bolder mx-2">
-								<a class="text-reset text-decoration-none" href="<%=naviFirstLink%>">처음으로</a>
-							</h5>
-							<h5 class="font-weight-bolder mx-2">
-								<a class="text-reset text-decoration-none" href="<%=naviPrevLink%>">이전</a>
-							</h5>
+							
+							<%
+								if (!productListPage.isFirstNaviPage()) {
+							%>
+									<h5 class="font-weight-bolder mx-2">
+										<a class="text-reset text-decoration-none" href="<%=naviFirstLink%>">처음으로</a>
+									</h5>
+									<h5 class="font-weight-bolder mx-2">
+										<a class="text-reset text-decoration-none" href="<%=naviPrevLink%>">이전</a>
+									</h5>
+							<%
+								}
+							%>
 							
 							<%
 								for (int naviPage : productListPage.getNaviPageList()) {
@@ -276,12 +283,18 @@
 								}
 							%>
 							
-							<h5 class="font-weight-bolder mx-2">
-								<a class="text-reset text-decoration-none" href="<%=naviNextLink%>">다음</a>
-							</h5>
-							<h5 class="font-weight-bolder mx-2">
-								<a class="text-reset text-decoration-none" href="<%=naviLastLink%>">마지막으로</a>
-							</h5>
+							<%
+								if (!productListPage.isLastNaviPage()) {
+							%>
+									<h5 class="font-weight-bolder mx-2">
+										<a class="text-reset text-decoration-none" href="<%=naviNextLink%>">다음</a>
+									</h5>
+									<h5 class="font-weight-bolder mx-2">
+										<a class="text-reset text-decoration-none" href="<%=naviLastLink%>">마지막으로</a>
+									</h5>
+							<%
+								}
+							%>
 						</div>
 					</div>
 				</div>
