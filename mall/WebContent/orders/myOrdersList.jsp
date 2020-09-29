@@ -101,7 +101,7 @@
 					for (OrdersAndProduct oap : list) {
 				%>
 						<div class="row d-flex align-items-center p-1">
-							<div class="col-1"><img class="img-fluid border" src="<%=request.getContextPath()%>/image/<%=oap.getProduct().getProductPic()%>"></div>
+							<div class="col-1"><img class="img-fluid border" src="http://<%=request.getServerName()%>:<%=request.getServerPort()%>/mall-admin/image/<%=oap.getProduct().getProductPic()%>"></div>
 							<div class="col-11">
 								<div class="d-flex justify-content-between">
 									<div>

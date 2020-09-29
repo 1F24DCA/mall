@@ -251,7 +251,7 @@
 					<div class="col text-center align-middle">
 						<a href="<%=request.getContextPath()%>/product/productList.jsp?searchCategoryId=<%=c.getCategoryId()%>" title="<%=c.getCategoryName()%>">
 							<!-- img-fluid 속성으로 이미지 크기를 테이블에 맞게 재조정, border 속성으로 테두리를 주었습니다 -->
-							<img class="img-fluid rounded-circle border" src="<%=request.getContextPath()%>/image/<%=c.getCategoryPic()%>">
+							<img class="img-fluid rounded-circle border" src="http://<%=request.getServerName()%>:<%=request.getServerPort()%>/mall-admin/image/<%=c.getCategoryPic()%>">
 						</a>
 					</div>
 				<%
@@ -367,7 +367,7 @@
 									 -->
 									<!-- 또한 카드 전체에 링크를 걸기 위해 div 태그 대신 a 태그를 사용합니다 -->
 									<a class="card mb-4 p-3 bg-light border-0 text-reset text-decoration-none" href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=pac.getProduct().getProductId()%>">
-										<img class="card-img-top border" src="<%=request.getContextPath()%>/image/<%=pac.getProduct().getProductPic()%>" alt="<%=pac.getProduct().getProductName()%>">
+										<img class="card-img-top border" src="http://<%=request.getServerName()%>:<%=request.getServerPort()%>/mall-admin/image/<%=pac.getProduct().getProductPic()%>">
 										<div class="card-body">
 											<!-- 
 												mt나 mb, mx 등 마진 설정에 대해선 익숙하리라 봅니다
