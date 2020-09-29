@@ -334,15 +334,15 @@
 				 -->
 				<%
 					ListPage productListPage = new ListPage();
-					productListPage.setCurrentPage(1);
-					productListPage.setRowPerPage(6);
-					
-					Product paramProduct = new Product();
-					paramProduct.setCategoryId(searchCategoryId);
-					paramProduct.setProductName("");
-					
-					ProductDao productDao = new ProductDao();
-					ArrayList<ProductAndCategory> productList = productDao.selectProductListWithPageAndSearch(productListPage, paramProduct);
+							productListPage.setCurrentPage(1);
+							productListPage.setRowPerPage(6);
+							
+							Product paramProduct = new Product();
+							paramProduct.setCategoryId(searchCategoryId);
+							paramProduct.setProductName("");
+							
+							ProductDao productDao = new ProductDao();
+							ArrayList<ProductAndCategory> productList = productDao.selectProductListWithPageAndSearch(productListPage, paramProduct);
 				%>
 				<div class="row my-2">
 						<%

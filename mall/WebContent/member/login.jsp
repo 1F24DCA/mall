@@ -116,7 +116,7 @@
 				<div><button class="btn btn-primary btn-block mb-3" type="submit">로그인</button></div>
 				<div><a class="btn btn-outline-secondary btn-block" href="<%=request.getContextPath()%>/member/signup.jsp">회원가입</a></div>
 			</form>
-							
+			
 			<%
 				if (!message.equals("")) {
 			%>
@@ -128,6 +128,29 @@
 			<%
 				}
 			%>
+			
+			<hr>
+			
+			<h5 class="text-secondary font-weight-lighter mb-3">개발자 도구</h5>
+			<div class="row">
+				<div class="col">
+					<form method="post" action="<%=request.getContextPath()%>/member/loginAction.jsp">
+						<input type="hidden" name="memberEmail" value="guest@goodee.com">
+						<input type="hidden" name="memberPw" value="1234">
+						
+						<button class="btn btn-success btn-block" type="submit">ID: guest@goodee.com<br>PW: 1234<br>클릭하여 로그인</button>
+					</form>
+				</div>
+				
+				<div class="col">
+					<form method="post" action="<%=request.getContextPath()%>/member/loginAction.jsp">
+						<input type="hidden" name="memberEmail" value="aaddsw@skyrock.com">
+						<input type="hidden" name="memberPw" value="1234">
+						
+						<button class="btn btn-success btn-block" type="submit">ID: aaddsw@skyrock.com<br>PW: 1234<br>클릭하여 로그인</button>
+					</form>
+				</div>
+			</div>
 		</div>
 		
 		<hr>

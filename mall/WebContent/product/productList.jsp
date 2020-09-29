@@ -18,52 +18,52 @@
 	</head>
 	
 	<%
-		final String THIS_PAGE = request.getContextPath()+"/product/productList.jsp";
-		
-		Member paramMember = new Member();
-		paramMember.setMemberEmail((String)(session.getAttribute("loginMemberEmail")));
-		
-		MemberDao memberDao = new MemberDao();
-		Member member = memberDao.selectMemberOne(paramMember);
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		int currentPage = 1;
-		if (request.getParameter("currentPage") != null) {
+			final String THIS_PAGE = request.getContextPath()+"/product/productList.jsp";
+				
+				Member paramMember = new Member();
+				paramMember.setMemberEmail((String)(session.getAttribute("loginMemberEmail")));
+				
+				MemberDao memberDao = new MemberDao();
+				Member member = memberDao.selectMemberOne(paramMember);
+				
+				request.setCharacterEncoding("UTF-8");
+				
+				int currentPage = 1;
+				if (request.getParameter("currentPage") != null) {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		}
-		
-		int searchCategoryId = -1;
-		if (request.getParameter("searchCategoryId") != null) {
+				}
+				
+				int searchCategoryId = -1;
+				if (request.getParameter("searchCategoryId") != null) {
 			searchCategoryId = Integer.parseInt(request.getParameter("searchCategoryId"));
-		}
-		
-		String searchProductName = "";
-		if (request.getParameter("searchProductName") != null) {
+				}
+				
+				String searchProductName = "";
+				if (request.getParameter("searchProductName") != null) {
 			searchProductName = request.getParameter("searchProductName");
-		}
-		
-		ListPage categoryListPage = new ListPage();
-		categoryListPage.setCurrentPage(1);
-		categoryListPage.setRowPerPage(30);
-		categoryListPage.setNaviAmount(1);
-		
-		CategoryDao categoryDao = new CategoryDao();
-		ArrayList<Category> categoryList = categoryDao.selectCategoryListWithPage(categoryListPage);
-		
-		ListPage productListPage = new ListPage();
-		productListPage.setCurrentPage(currentPage);
-		productListPage.setRowPerPage(12);
-		productListPage.setNaviAmount(5);
-		
-		Product paramProduct = new Product();
-		paramProduct.setCategoryId(searchCategoryId);
-		paramProduct.setProductName(searchProductName);
-		
-		ProductDao productDao = new ProductDao();
-		ArrayList<ProductAndCategory> productList = productDao.selectProductListWithPageAndSearch(productListPage, paramProduct);
-		productListPage.setTotalRow(productDao.selectProductCountWithSearch(paramProduct));
-	%>
+				}
+				
+				ListPage categoryListPage = new ListPage();
+				categoryListPage.setCurrentPage(1);
+				categoryListPage.setRowPerPage(30);
+				categoryListPage.setNaviAmount(1);
+				
+				CategoryDao categoryDao = new CategoryDao();
+				ArrayList<Category> categoryList = categoryDao.selectCategoryListWithPage(categoryListPage);
+				
+				ListPage productListPage = new ListPage();
+				productListPage.setCurrentPage(currentPage);
+				productListPage.setRowPerPage(12);
+				productListPage.setNaviAmount(5);
+				
+				Product paramProduct = new Product();
+				paramProduct.setCategoryId(searchCategoryId);
+				paramProduct.setProductName(searchProductName);
+				
+				ProductDao productDao = new ProductDao();
+				ArrayList<ProductAndCategory> productList = productDao.selectProductListWithPageAndSearch(productListPage, paramProduct);
+				productListPage.setTotalRow(productDao.selectProductCountWithSearch(paramProduct));
+		%>
 	
 	<body>
 		<!-- 네비게이션 위 (제목/검색/유틸리티) 표시 부분 -->
