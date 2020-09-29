@@ -101,7 +101,7 @@
 					</div>
 					<div class="w-50 p-2">
 						<h4 class="small">
-							<a class="text-reset" href="<%=request.getContextPath()%>/product/productList.jsp?searchCategoryId=<%=pac.getProduct().getCategoryId()%>"><%=pac.getCategory().getCategoryName() %></a>
+							<a class="text-primary" href="<%=request.getContextPath()%>/product/productList.jsp?searchCategoryId=<%=pac.getProduct().getCategoryId()%>"><%=pac.getCategory().getCategoryName() %></a>
 						</h4>
 						<h3><%=pac.getProduct().getProductName() %></h3>
 						<div><%=pac.getProduct().getProductContent() %></div>
