@@ -105,7 +105,7 @@
 							<div class="col-11">
 								<div class="d-flex justify-content-between">
 									<div>
-										<h5><a class="text-reset" href="<%=request.getContextPath()%>/orders/myOrdersOne.jsp?ordersId=<%=oap.getOrders().getOrdersId()%>"><%=oap.getProduct().getProductName() %></a></h5>
+										<h5><a class="text-primary" href="<%=request.getContextPath()%>/orders/myOrdersOne.jsp?ordersId=<%=oap.getOrders().getOrdersId()%>"><%=oap.getProduct().getProductName() %></a></h5>
 									</div>
 									
 									<div>
