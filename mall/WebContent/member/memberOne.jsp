@@ -86,19 +86,19 @@
 				<h6><%=member.getMemberName() %> 님 (가입일: <%=member.getMemberDate().replace(".0", "") %>)</h6>
 				<div class="row mt-3">
 					<div class="col">
-						<a class="btn btn-primary btn-block p-5" href="<%=request.getContextPath()%>/orders/myOrdersList.jsp">
+						<a class="btn btn-primary btn-block p-5 mb-3" href="<%=request.getContextPath()%>/orders/myOrdersList.jsp">
 							<i class='fas fa-file-invoice-dollar m-5' style='font-size:72px'></i><br><span style='font-size:18px'>내 주문목록</span>
 						</a>
 					</div>
 					
 					<div class="col">
-						<a class="btn btn-warning btn-block p-5" href="<%=request.getContextPath()%>/member/editMemberPw.jsp">
+						<a class="btn btn-warning btn-block p-5 mb-3" href="<%=request.getContextPath()%>/member/editMemberPw.jsp">
 							<i class='fas fa-user-lock m-5' style='font-size:72px'></i><br><span style='font-size:18px'>비밀번호 변경</span>
 						</a>
 					</div>
 					
 					<div class="col">
-						<a class="btn btn-danger btn-block p-5" href="<%=request.getContextPath()%>/member/deleteMember.jsp">
+						<a class="btn btn-danger btn-block p-5 mb-3" href="<%=request.getContextPath()%>/member/deleteMember.jsp">
 							<i class='fas fa-user-slash m-5' style='font-size:72px'></i><br><span style='font-size:18px'>회원 탈퇴</span>
 						</a>
 					</div>
