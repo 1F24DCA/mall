@@ -421,7 +421,7 @@
 							<%
 								for (Notice n : noticeList) {
 							%>
-									<li><a class="text-reset" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeTitle() %></a></li>
+									<li><a class="" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeTitle() %></a></li>
 							<%
 								}
 							%>

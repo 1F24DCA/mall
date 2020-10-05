@@ -121,7 +121,7 @@
 				%>
 						<li>
 							<span class="font-weight-bold mr-2">다음글</span>
-							<a class="text-reset" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=nextNotice.getNoticeId()%>">
+							<a href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=nextNotice.getNoticeId()%>">
 								<%=nextNotice.getNoticeTitle() %>
 							</a>
 						</li>
@@ -132,7 +132,7 @@
 				%>
 						<li>
 							<span class="font-weight-bold mr-2">이전글</span>
-							<a class="text-reset" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=prevNotice.getNoticeId()%>">
+							<a href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=prevNotice.getNoticeId()%>">
 								<%=prevNotice.getNoticeTitle() %>
 							</a>
 						</li>
