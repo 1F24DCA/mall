@@ -109,6 +109,21 @@ public class MemberDao {
 		conn.close();
 	}
 
+	public void updateMemberName(Member paramMember) throws Exception {
+		DBUtil dbUtil = new DBUtil();
+		Connection conn = dbUtil.getConnection();
+		
+		String sql = "UPDATE member SET member_name=? WHERE member_email=?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, paramMember.getMemberName());
+		stmt.setString(2, paramMember.getMemberEmail());
+		System.out.println(stmt+"<-stmt");
+		
+		stmt.executeUpdate();
+		
+		conn.close();
+	}
+
 	public void updateMemberPw(Member paramMember) throws Exception {
 		DBUtil dbUtil = new DBUtil();
 		Connection conn = dbUtil.getConnection();

@@ -14,7 +14,7 @@
 	<html>
 	<head>
 		<meta charset="UTF-8">
-		<title>memberOne</title>
+		<title>editMemberName</title>
 		
 		<!-- 부트스트랩 사용 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -79,38 +79,22 @@
 		<!-- 네비게이션 아래 (컨텐츠) 표시 부분 -->
 		<div class="container-lg mt-4 mb-5">
 			<div class="container-lg mt-4 mb-5">
-				<h2 class="font-weight-bolder">회원 정보</h2>
+				<h2 class="font-weight-bolder">회원 이름 변경</h2>
 				
 				<hr>
 				
-				<div class="d-inline-flex align-items-center">
-					<h6><%=member.getMemberName() %> 님</h6>
-					<a class="btn" href="<%=request.getContextPath()%>/member/editMemberName.jsp">
-						<i class='fas fa-pen' style='font-size:20px'></i>
-					</a>
-				</div>
-				
-				<h6>가입일: <%=member.getMemberDate().replace(".0", "") %></h6>
-				
-				<div class="row mt-3">
-					<div class="col">
-						<a class="btn btn-primary btn-block p-5 mb-3" href="<%=request.getContextPath()%>/orders/myOrdersList.jsp">
-							<i class='fas fa-file-invoice-dollar m-5' style='font-size:72px'></i><br><span style='font-size:18px'>내 주문목록</span>
-						</a>
+				<form method="post" action="<%=request.getContextPath()%>/member/editMemberNameAction.jsp">
+					<div class="form-group">
+						<label>이름:</label>
+						<input class="form-control" type="text" name="memberName" value="<%=member.getMemberName()%>">
 					</div>
 					
-					<div class="col">
-						<a class="btn btn-warning btn-block p-5 mb-3" href="<%=request.getContextPath()%>/member/editMemberPw.jsp">
-							<i class='fas fa-user-lock m-5' style='font-size:72px'></i><br><span style='font-size:18px'>비밀번호 변경</span>
-						</a>
-					</div>
+					<hr>
 					
-					<div class="col">
-						<a class="btn btn-danger btn-block p-5 mb-3" href="<%=request.getContextPath()%>/member/deleteMember.jsp">
-							<i class='fas fa-user-slash m-5' style='font-size:72px'></i><br><span style='font-size:18px'>회원 탈퇴</span>
-						</a>
+					<div class="form-group">
+						<button class="btn btn-warning btn-block" type="submit">회원 이름 변경</button>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 		
