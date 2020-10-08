@@ -19,7 +19,9 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 	
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		// Tomcat 실행 시 application을 가져와서 유저 카운트 리스너 전체에 쓸 수 있도록 등록
+		System.out.println("mall 프로젝트 실행됨");
+		
+		// mall 프로젝트 등록 시 application을 가져와서 유저 카운트 리스너 전체에 쓸 수 있도록 등록
 		application = event.getServletContext();
 		
 		// 유저 카운트 초기화
@@ -33,6 +35,8 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 	
 	@Override
 	public void sessionCreated(HttpSessionEvent event) {
+		System.out.println("세션 생성됨");
+		
 		// 일단 지금 집계된 현재 유저 수랑 오늘 유저 수를 가져와서
 		int currentUser = (Integer) application.getAttribute("currentUserCount");
 		int todayUser = (Integer) application.getAttribute("todayUserCount");
@@ -71,6 +75,8 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 	
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {
+		System.out.println("세션 소멸됨");
+		
 		// 일단 지금 집계된 현재 유저 수를 가져와서
 		int currentUser = (Integer) application.getAttribute("currentUserCount");
 		
@@ -83,7 +89,9 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
-		// 톰캣이 꺼졌을 때 해야할 일은 따로 없음
+		System.out.println("mall 프로젝트 실행 종료됨");
+		
+		// mall 프로젝트가 리로드되거나 종료될때 실행하는 부분
 		// 사실 이 때 전체 방문자 수를 기록하고 싶었으나
 		// 톰캣이 강제종료되면 얘도 소용없을거라 판단, 그런 무모한 도전은 하지 않음
 	}
