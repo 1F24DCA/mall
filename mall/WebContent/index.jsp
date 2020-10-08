@@ -199,27 +199,6 @@
 			* 네비게이션 아래 (컨텐츠) 표시 부분
 		 -->
 		<div class="container-lg">
-			<p>
-				<h4>유저 통계</h4>
-			</p>
-			<p>
-				<table class="table">
-					<tr>
-						<th class="w-25">현재 접속자 수</th>
-						<td><%=currentUserCount %></td>
-					</tr>
-					
-					<tr>
-						<th>오늘 방문자 수</th>
-						<td><%=todayUserCount %></td>
-					</tr>
-					
-					<tr>
-						<th>전체 방문자 수</th>
-						<td><%=totalUserCount %></td>
-					</tr>
-				</table>
-			</p>
 			<!-- 
 				* 카테고리와 광고 표시 부분
 				
@@ -456,6 +435,33 @@
 					</div>
 				</div>
 			</div>
+			
+			<hr>
+			
+			<!-- 
+				* 유저 통계 부분
+			 -->
+			<p>
+				<h4>유저 통계</h4>
+			</p>
+			<p>
+				<table class="table">
+					<tr>
+						<th class="w-25">현재 접속자 수</th>
+						<td><%=currentUserCount %></td>
+					</tr>
+					
+					<tr>
+						<th>오늘 방문자 수</th>
+						<td><%=todayUserCount %></td>
+					</tr>
+					
+					<tr>
+						<th>전체 방문자 수</th>
+						<td><%=totalUserCount %></td>
+					</tr>
+				</table>
+			</p>
 		</div>
 		 
 		<!-- 가로선을 위해 hr태그를 넣었습니다 -->
