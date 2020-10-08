@@ -28,32 +28,32 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 		application.setAttribute("currentUserCount", 0);
 		application.setAttribute("todayUserCount", 0);
 		
-		// 마지막 액세스 시간 초기화
-		int currentHour = getCurrentHour();
-		application.setAttribute("lastAccessHour", currentHour);
+		// 마지막 액세스 날짜 초기화
+		String currentDate= getCurrentDate();
+		application.setAttribute("lastAccessDate", currentDate);
 	}
 	
 	@Override
 	public void sessionCreated(HttpSessionEvent event) {
 		System.out.println("세션 생성됨");
 		
-		// 일단 지금 집계된 현재 유저 수랑 오늘 유저 수를 가져와서
+		// 일단 지금 집계된 현재 유저 수랑 오늘 유저 수를 가져오고
 		int currentUser = (Integer) application.getAttribute("currentUserCount");
 		int todayUser = (Integer) application.getAttribute("todayUserCount");
 		
-		// 현재 시간이랑 마지막으로 액세스한 시간을 비교해서...
-		int currentHour = getCurrentHour();
-		int lastAccessHour = (Integer) application.getAttribute("lastAccessHour");
-		System.out.println(currentHour+"<-currentHour");
-		System.out.println(lastAccessHour+"<-lastAccessHour");
+		// 현재 날짜랑 마지막으로 액세스한 날짜를 비교해서...
+		String currentDate = getCurrentDate();
+		String lastAccessDate = (String) application.getAttribute("lastAccessDate");
+		System.out.println(currentDate+"<-currentDate");
+		System.out.println(lastAccessDate+"<-lastAccessDate");
 		
-		// 만약 다음 날 자정이 지났다면 오늘자 유저 수 집계를 초기화하고
-		if (currentHour < lastAccessHour) {
+		// 만약 날짜가 바뀌였다면(다음 날 자정이 지났다면) 오늘자 유저 수 집계를 초기화하고
+		if (!currentDate.equals(lastAccessDate)) {
 			application.setAttribute("todayUserCount", 0);
+			
+			// 마지막 접속 날짜를 갱신해 준 뒤
+			application.setAttribute("lastAccessDate", currentDate);
 		}
-		
-		// 마지막 접속 시간을 갱신해 준 뒤
-		application.setAttribute("lastAccessHour", currentHour);
 		
 		// 집계된 수에 1을 더하고
 		currentUser += 1;
@@ -96,11 +96,13 @@ public class UserCountListener implements ServletContextListener, HttpSessionLis
 		// 톰캣이 강제종료되면 얘도 소용없을거라 판단, 그런 무모한 도전은 하지 않음
 	}
 	
-	// 현재 시간(0시~23시)를 출력하는 메서드
-	public int getCurrentHour() {
+	// 현재 날짜를 문자열로 출력하는 메서드
+	public String getCurrentDate() {
 		Calendar calendar = Calendar.getInstance();
 		
-		// Calendar.HOUR만 하면 12시간제로 등록되므로 00:00:00부터 23:59:59까지 적용시키는 HOUR_OF_DAY를 사용함
-		return calendar.get(Calendar.HOUR_OF_DAY);
+		// 2020-10-08같이 0000-00-00 템플릿의 String을 출력함
+		return calendar.get(Calendar.YEAR) + "-"
+				+ String.format("%02d", calendar.get(Calendar.MONTH)+1) + "-"
+				+ String.format("%02d", calendar.get(Calendar.DAY_OF_MONTH));
 	}
 }
