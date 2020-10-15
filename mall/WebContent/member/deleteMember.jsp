@@ -134,7 +134,7 @@
 					</div>
 					
 					<div>
-						<button class="btn btn-danger btn-block" type="submit" id="deleteSubmit">회원 탈퇴</button>
+						<button class="btn btn-danger btn-block" type="button" id="deleteSubmit">회원 탈퇴</button>
 					</div>
 				</form>
 							
