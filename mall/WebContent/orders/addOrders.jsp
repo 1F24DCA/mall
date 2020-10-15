@@ -20,6 +20,39 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- FontAwesome Icon 사용 -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				console.log("document ready");
+				
+				$("#searchProductSubmit").click(function() {
+					console.log("started search product");
+					
+					if ($("#searchProductName").val() == "") {
+						alert("검색어를 입력해주세요!");
+						
+						$("#searchProductName").focus();
+						return;
+					}
+					
+					$("#searchProductForm").submit();
+				});
+				
+				$("#addOrdersSubmit").click(function() {
+					console.log("started add orders");
+					
+					if ($("#addOrdersAddr").val() == "") {
+						alert("배송지를 입력해주세요!");
+						
+						$("#addOrdersAddr").focus();
+						return;
+					}
+					
+					$("#addOrdersForm").submit();
+				});
+			});
+		</script>
 	</head>
 	
 	<%
@@ -46,7 +79,7 @@
 		<div class="container-lg mt-5 mb-4">
 			<br>
 			
-			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp">
+			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp" id="searchProductForm">
 				<div class="row">
 					<!-- 쇼핑몰 이름 표시 -->
 					<div class="col text-left align-middle">
@@ -59,14 +92,14 @@
 					
 					<!-- 검색 창(입력폼 한개) -->
 					<div class="col d-flex align-items-center">
-						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색">
+						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색" id="searchProductName">
 					</div>
 					
 					<!-- 검색 버튼 + 유틸리티(마이페이지, 장바구니) -->
 					<div class="col d-flex">
 						<div class="row flex-fill">
 							<div class="col-4 d-flex align-items-center">
-								<button class="btn btn-dark btn-block" type="submit">검색</button>
+								<button class="btn btn-dark btn-block" type="button" id="searchProductSubmit">검색</button>
 							</div>
 							
 							<div class="col-8 text-right align-middle">
@@ -94,7 +127,7 @@
 				
 				<hr>
 				
-				<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp">
+				<form method="post" action="<%=request.getContextPath()%>/orders/addOrdersAction.jsp" id="addOrdersForm">
 					<input type="hidden" value="<%=product.getProductId()%>" name="productId">
 					<input type="hidden" value="<%=product.getProductPrice()%>" name="productPrice">
 					
@@ -135,13 +168,13 @@
 						<div class="col-9">
 							<div class="form-group">
 								<label>배송지:</label>
-								<input class="form-control" type="text" name="ordersAddr">
+								<input class="form-control" type="text" name="ordersAddr" id="addOrdersAddr">
 							</div>
 						</div>
 					</div>
 					
 					<div class="form-group">
-						<button class="btn btn-primary btn-block" type="submit">주문하기</button>
+						<button class="btn btn-primary btn-block" type="button" id="addOrdersSubmit">주문하기</button>
 					</div>
 				</form>
 			</div>

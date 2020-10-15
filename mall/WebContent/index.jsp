@@ -47,6 +47,26 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- 이 페이지는 FontAwesome Icon을 사용합니다 (딱 두번밖에 안쓰지만요) -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				console.log("document ready");
+				
+				$("#searchProductSubmit").click(function() {
+					console.log("started search product");
+					
+					if ($("#searchProductName").val() == "") {
+						alert("검색어를 입력해주세요!");
+						
+						$("#searchProductName").focus();
+						return;
+					}
+					
+					$("#searchProductForm").submit();
+				});
+			});
+		</script>
 	</head>
 	
 	<%
@@ -97,7 +117,7 @@
 			<br>
 			
 			<!-- 테이블 (div class="row"와 div class="col") 중간에 form 태그를 끼워넣으면 미관상 좋지 못하여 밖으로 빼서 선언합니다 -->
-			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp">
+			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp" id="searchProductForm">
 				<!-- 
 					상단 컨텐츠부를 3등분으로 쪼갭니다
 					각 조각들은 정확히 33.3333...%의 자리를 차지하며, 3등분으로 쪼갠 조각들을...
@@ -127,7 +147,7 @@
 						Flex를 이용한 내부 아이템 정렬을 "d-flex align-items-center"로 할 수 있습니다
 					 -->
 					<div class="col d-flex align-items-center">
-						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색">
+						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색" id="searchProductName">
 					</div>
 					
 					<!-- 오른쪽 부분: 검색 버튼 + 유틸리티(마이페이지, 장바구니) -->
@@ -148,7 +168,7 @@
 							<!-- 검색 버튼 표시 열 (이중테이블의 25%) -->
 							<div class="col-4 d-flex align-items-center">
 								<!-- btn-block은 패런트에 꽉 차게 버튼 크기를 늘리는 클래스입니다. 이로써 이중 테이블의 25% 전체를 버튼이 꽉 차지하게 됩니다 -->
-								<button class="btn btn-dark btn-block" type="submit">검색</button>
+								<button class="btn btn-dark btn-block" type="button" id="searchProductSubmit">검색</button>
 							</div>
 							
 							<!-- 유틸리티 (마이페이지/장바구니) 버튼 표시 열 (이중테이블의 75%) -->

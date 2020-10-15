@@ -20,6 +20,39 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- FontAwesome Icon 사용 -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				console.log("document ready");
+				
+				$("#searchProductSubmit").click(function() {
+					console.log("started search product");
+					
+					if ($("#searchProductName").val() == "") {
+						alert("검색어를 입력해주세요!");
+						
+						$("#searchProductName").focus();
+						return;
+					}
+					
+					$("#searchProductForm").submit();
+				});
+				
+				$("#deleteSubmit").click(function() {
+					console.log("started delete");
+					
+					if ($("#deletePw").val() == "") {
+						alert("비밀번호를 입력해주세요!");
+						
+						$("#deletePw").focus();
+						return;
+					}
+					
+					$("#deleteForm").submit();
+				});
+			});
+		</script>
 	</head>
 	
 	<%
@@ -45,7 +78,7 @@
 		<div class="container-lg mt-5 mb-4">
 			<br>
 			
-			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp">
+			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp" id="searchProductForm">
 				<div class="row">
 					<!-- 쇼핑몰 이름 표시 -->
 					<div class="col text-left align-middle">
@@ -58,14 +91,14 @@
 					
 					<!-- 검색 창(입력폼 한개) -->
 					<div class="col d-flex align-items-center">
-						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색">
+						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색" id="searchProductName">
 					</div>
 					
 					<!-- 검색 버튼 + 유틸리티(마이페이지, 장바구니) -->
 					<div class="col d-flex">
 						<div class="row flex-fill">
 							<div class="col-4 d-flex align-items-center">
-								<button class="btn btn-dark btn-block" type="submit">검색</button>
+								<button class="btn btn-dark btn-block" type="button" id="searchProductSubmit">검색</button>
 							</div>
 							
 							<div class="col-8 text-right align-middle">
@@ -94,14 +127,14 @@
 				
 				<p>정말로 회원을 탈퇴하시겠습니까? 탈퇴한 계정은 영구적으로 재가입이 불가능합니다!</p>
 				<p>회원 탈퇴를 하시려면 비밀번호를 한번 더 입력해주세요!</p>
-				<form method="post" action="<%=request.getContextPath()%>/member/deleteMemberAction.jsp">
+				<form method="post" action="<%=request.getContextPath()%>/member/deleteMemberAction.jsp" id="deleteForm">
 					<div class="form-group">
 						<label>비밀번호:</label>
-						<input class="form-control" type="password" name="memberPw">
+						<input class="form-control" type="password" name="memberPw" id="deletePw">
 					</div>
 					
 					<div>
-						<button class="btn btn-danger btn-block" type="submit">회원 탈퇴</button>
+						<button class="btn btn-danger btn-block" type="submit" id="deleteSubmit">회원 탈퇴</button>
 					</div>
 				</form>
 							

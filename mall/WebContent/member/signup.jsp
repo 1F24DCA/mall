@@ -17,6 +17,54 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		<!-- FontAwesome Icon 사용 -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				console.log("document ready");
+				
+				$("#searchProductSubmit").click(function() {
+					console.log("started search product");
+					
+					if ($("#searchProductName").val() == "") {
+						alert("검색어를 입력해주세요!");
+						
+						$("#searchProductName").focus();
+						return;
+					}
+					
+					$("#searchProductForm").submit();
+				});
+				
+				$("#signupSubmit").click(function() {
+					console.log("started signup");
+					
+					if ($("#signupEmail").val() == "") {
+						alert("이메일을 입력해주세요!");
+						
+						$("#signupEmail").focus();
+						return;
+					} else if ($("#signupPw").val() == "") {
+						alert("비밀번호를 입력해주세요!");
+						
+						$("#signupPw").focus();
+						return;
+					} else if ($("#signupPwConfirm").val() == "") {
+						alert("비밀번호 확인을 입력해주세요!");
+						
+						$("#signupPwConfirm").focus();
+						return;
+					} else if ($("#signupName").val() == "") {
+						alert("이름을 입력해주세요!");
+						
+						$("#signupName").focus();
+						return;
+					}
+					
+					$("#signupForm").submit();
+				});
+			});
+		</script>
 	</head>
 	
 	<%
@@ -37,7 +85,7 @@
 		<div class="container-lg mt-5 mb-4">
 			<br>
 			
-			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp">
+			<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp" id="searchProductForm">
 				<div class="row">
 					<!-- 쇼핑몰 이름 표시 -->
 					<div class="col text-left align-middle">
@@ -50,14 +98,14 @@
 					
 					<!-- 검색 창(입력폼 한개) -->
 					<div class="col d-flex align-items-center">
-						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색">
+						<input class="form-control" type="text" name="searchProductName" placeholder="이름으로 상품 검색" id="searchProductName">
 					</div>
 					
 					<!-- 검색 버튼 + 유틸리티(마이페이지, 장바구니) -->
 					<div class="col d-flex">
 						<div class="row flex-fill">
 							<div class="col-4 d-flex align-items-center">
-								<button class="btn btn-dark btn-block" type="submit">검색</button>
+								<button class="btn btn-dark btn-block" type="button" id="searchProductSubmit">검색</button>
 							</div>
 							
 							<div class="col-8 text-right align-middle">
@@ -83,36 +131,36 @@
 			
 			<hr>
 			
-			<form method="post" action="<%=request.getContextPath()%>/member/signupAction.jsp">
+			<form method="post" action="<%=request.getContextPath()%>/member/signupAction.jsp" id="signupForm">
 				<div class="form-group">
 					<label>E-mail:</label>
-					<input class="form-control" type="text" name="memberEmail">
+					<input class="form-control" type="text" name="memberEmail" id="signupEmail">
 				</div>
 				
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
 							<label>비밀번호:</label>
-							<input class="form-control" type="password" name="memberPw">
+							<input class="form-control" type="password" name="memberPw" id="signupPw">
 						</div>
 					</div>
 					
 					<div class="col">
 						<div class="form-group">
 							<label>비밀번호 확인:</label>
-							<input class="form-control" type="password" name="memberPwConfirm">
+							<input class="form-control" type="password" name="memberPwConfirm" id="signupPwConfirm">
 						</div>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label>이름:</label>
-					<input class="form-control" type="text" name="memberName">
+					<input class="form-control" type="text" name="memberName" id="signupName">
 				</div>
 				
 				<hr>
 				
-				<div><button class="btn btn-primary btn-block mb-3" type="submit">회원가입</button></div>
+				<div><button class="btn btn-primary btn-block mb-3" type="button" id="signupSubmit">회원가입</button></div>
 			</form>
 			
 			<%
